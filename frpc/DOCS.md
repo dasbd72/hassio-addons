@@ -27,6 +27,7 @@ proxies:
     local_ip: 127.0.0.1
     local_port: 22
     remote_port: 2222
+    custom_domains: []
 ```
 
 ### Option: `server_addr`
@@ -52,7 +53,7 @@ A list of proxies to expose. Each entry supports:
   Home Assistant hostname).
 - `local_port`: Port of the local service.
 - `custom_domains`: List of domains to route to this proxy. Only used when
-  `type` is `http` (or `https`).
+  `type` is `http` (or `https`); set to `[]` for `tcp`/`udp` proxies.
 - `remote_port`: Port to expose on the frp server. Only used when `type` is
   `tcp` or `udp`. If omitted, the server assigns a port automatically
   (requires `allow_ports`/random port assignment to be enabled in

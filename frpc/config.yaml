@@ -1,5 +1,5 @@
 name: "FRP Client"
-version: "0.1.4"
+version: "0.1.5"
 slug: "frpc"
 description: "Runs frpc to expose local services through an frp server"
 url: https://github.com/dasbd72/hassio-addons/tree/main/frpc
@@ -25,5 +25,5 @@ schema:
       local_ip: str
       local_port: port
       remote_port: port?
-      custom_domains?:
+      custom_domains:
         - str

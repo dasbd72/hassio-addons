@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.5
+
+- Reverts `custom_domains` to a required field. Marking it optional
+  (`custom_domains?`) triggered a Supervisor UI bug where saving the
+  add-on configuration through the form wrote the literal key
+  `custom_domains?` into the stored options, which then failed schema
+  validation. Use `custom_domains: []` for `tcp`/`udp` proxies instead.
+  If you were affected, open the add-on's Configuration tab, switch to
+  "Edit in YAML", and remove any trailing `?` from option keys before
+  saving.
+
 ## 0.1.4
 
 - Adds an optional `remote_port` proxy option for specifying the remote
