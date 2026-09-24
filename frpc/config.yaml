@@ -2,6 +2,7 @@ name: "FRP Client"
 version: "0.1.4"
 slug: "frpc"
 description: "Runs frpc to expose local services through an frp server"
+url: https://github.com/dasbd72/hassio-addons/tree/main/frpc
 arch:
   - amd64
   - aarch64
