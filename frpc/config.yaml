@@ -1,5 +1,5 @@
 name: "FRP Client"
-version: "0.1.0"
+version: "0.1.1"
 slug: "frpc"
 description: "Runs frpc to expose local services through an frp server"
 arch:
