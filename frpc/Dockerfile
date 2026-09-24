@@ -16,7 +16,5 @@ RUN apk add --no-cache curl tar jq \
     && rm -rf /tmp/frp* \
     && apk del curl tar
 
-COPY run.sh /
-RUN chmod a+x /run.sh
-
-CMD [ "/run.sh" ]
+COPY run.sh /etc/services.d/frpc/run
+RUN chmod a+x /etc/services.d/frpc/run
