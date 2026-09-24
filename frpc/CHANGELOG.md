@@ -15,3 +15,10 @@
 - Fixes `bashio::config` returning `null` for all options, which crashed
   frpc. The build step was deleting `curl`, which `bashio` requires at
   runtime to call the Supervisor API.
+
+## 0.1.3
+
+- Sets `init: false` in `config.yaml`. Without it, Supervisor injects its
+  own init (tini) as PID 1, which conflicts with the base image's
+  s6-overlay init and causes `s6-overlay-suexec: fatal: can only run as
+  pid 1`.
