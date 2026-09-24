@@ -22,6 +22,7 @@ jq -c '.proxies[]' "$CONFIG_PATH" | while read -r proxy; do
   type=$(echo "$proxy" | jq -r '.type')
   local_ip=$(echo "$proxy" | jq -r '.local_ip')
   local_port=$(echo "$proxy" | jq -r '.local_port')
+  remote_port=$(echo "$proxy" | jq -r '.remote_port // empty')
 
   {
     echo "[[proxies]]"
@@ -30,7 +31,9 @@ jq -c '.proxies[]' "$CONFIG_PATH" | while read -r proxy; do
     echo "localIP = \"${local_ip}\""
     echo "localPort = ${local_port}"
     if [ "$type" = "http" ] || [ "$type" = "https" ]; then
-      echo "customDomains = [$(echo "$proxy" | jq -r '.custom_domains | map("\"" + . + "\"") | join(", ")')]"
+      echo "customDomains = [$(echo "$proxy" | jq -r '.custom_domains // [] | map("\"" + . + "\"") | join(", ")')]"
+    elif [ -n "$remote_port" ]; then
+      echo "remotePort = ${remote_port}"
     fi
     echo ""
   } >> "$OUT"

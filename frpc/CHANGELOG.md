@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4
+
+- Adds an optional `remote_port` proxy option for specifying the remote
+  port to use on the frp server for `tcp`/`udp` proxies.
+- Makes `custom_domains` optional, since it only applies to `http` proxies.
+
 ## 0.1.3
 
 - Sets `init: false` in `config.yaml`. Without it, Supervisor injects its
